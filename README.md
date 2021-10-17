@@ -1,4 +1,4 @@
-# book-interpreter-web-app
+# book-asl-interpreter-web-application
 Northeastern University Enabling Engineering Project: ASL Interpreter Booking Web App
 
 By: Fatema Jahani, Julian Lechner, Joshua An.
