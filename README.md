@@ -27,8 +27,8 @@ https://chrome.google.com/webstore/detail/chromeiql/fkkiamalmpiidkljmicmjfbieicl
 
 
 ## To run program
-`node app.js`
+`nodemon app.js` *should be using nodemon instead of node, because it auto-refreshes everytime you save new changes.*
 
-`npm start`
+`npm start` *don't think this is necessary if nodemon is set up correctly*
 
 * To view, either `curl localhost:3000` in command line, or open `http://localhost:3000/`
