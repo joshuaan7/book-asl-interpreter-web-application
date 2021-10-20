@@ -15,17 +15,24 @@ In the command line:
 
 * `npm install --save express body-parser`
 * `npm i --save-dev nodemon`
+  * in case the above command doesn't work, do `npm install -g nodemon # or using yarn: yarn global add nodemon`
 
 
 ### Setting up GraphQL
 `npm install --save express-graphql graphql`
 
+### Mongoose
+`npm i install mongoose`
+
 ## Packages to install
+
+### ChromeiQL
 Visual representation of our database content.
 
 https://chrome.google.com/webstore/detail/chromeiql/fkkiamalmpiidkljmicmjfbieiclmeij?hl=en
 
 Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
+
 
 ## To run program
 `nodemon app.js` *should be using nodemon instead of node, because it auto-refreshes everytime you save new changes.*
