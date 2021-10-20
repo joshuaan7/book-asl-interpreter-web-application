@@ -17,5 +17,13 @@
   "devDependencies": {
     "nodemon": "^2.0.13"
   },
-  "description": ""
+  "description": "Northeastern University Enabling Engineering Project: ASL Interpreter Booking Web App",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuaan7/book-asl-interpreter-web-application.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joshuaan7/book-asl-interpreter-web-application/issues"
+  },
+  "homepage": "https://github.com/joshuaan7/book-asl-interpreter-web-application#readme"
 }
