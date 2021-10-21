@@ -66,13 +66,25 @@ app.use('/graphql', graphqlHTTP({
   }
 }));
 
-mongoose
-  .connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-ycwj8.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`)
-  .then(() => {
-    app.listen(3000);
-  })
-  .catch(err => {
-    console.log(err);
-  })
+const { MongoClient } = require('mongodb');
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.18rwo.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  console.log(collection)
+  // perform actions on the collection object
+  client.close();
+});
+
+// mongoose
+//   //.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-ycwj8.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`)
+//   .connect(`mongodb+srv://admin:D7BT7VUff5pmjMgA@cluster0-ycwj8.mongodb.net/sample_airbnb?retryWrites=true`)
+
+//   .then(() => {
+//     app.listen(3000);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   })
 
 app.listen(3000);
