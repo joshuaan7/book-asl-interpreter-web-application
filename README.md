@@ -41,7 +41,7 @@ Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
 
 * To view, either `curl localhost:3000` in command line, or open `http://localhost:3000/`
 
-## Using mutations to add to the database
+## Using mutations to add to the database in ChromeiQL
 
 `mutation {
   createEvent(eventInput:{
@@ -58,7 +58,7 @@ Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
 
 
 
-## Using query to view the data from databases
+## Using query to view the data from databases in ChromeiQL
 `
 query {
   events {
