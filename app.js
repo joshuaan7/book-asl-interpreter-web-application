@@ -40,10 +40,21 @@ app.use('/graphql', graphqlHTTP({
     mutation: RootMutation
   }
 `),
-  rootValue: {
-    events: () => {
-      return events;
-    },
+
+rootValue: {
+  events: () => {
+    return Event
+      .find()
+      .then(events => {
+        return events.map(event => {
+          return {...event._doc, _id: event.id};
+        })
+      })
+      .catch(err => {
+        console.log(err);
+        throw err;
+      })       
+  },
     createEvent: (args) => {
       const event = new Event({
         title: args.eventInput.title,
@@ -55,7 +66,7 @@ app.use('/graphql', graphqlHTTP({
         .save()
         .then(result => {
           console.log(result);
-          return { ...result._doc};
+          return { ...result._doc, _id: result._doc._id.toString()};
         })
         .catch(err => {
           console.log(err);
@@ -66,25 +77,11 @@ app.use('/graphql', graphqlHTTP({
   }
 }));
 
-const { MongoClient } = require('mongodb');
-const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.18rwo.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  console.log(collection)
-  // perform actions on the collection object
-  client.close();
-});
-
-// mongoose
-//   //.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-ycwj8.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`)
-//   .connect(`mongodb+srv://admin:D7BT7VUff5pmjMgA@cluster0-ycwj8.mongodb.net/sample_airbnb?retryWrites=true`)
-
-//   .then(() => {
-//     app.listen(3000);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   })
-
-app.listen(3000);
+mongoose
+  .connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.18rwo.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`)
+  .then(() => {
+    app.listen(3000);
+  })
+  .catch(err => {
+    console.log(err);
+  })

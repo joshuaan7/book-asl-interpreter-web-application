@@ -40,3 +40,32 @@ Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
 `npm start` *don't think this is necessary if nodemon is set up correctly*
 
 * To view, either `curl localhost:3000` in command line, or open `http://localhost:3000/`
+
+## Using mutations to add to the database
+
+`mutation {
+  createEvent(eventInput:{
+    title:"Title A",
+    description: "This is another test A",
+    price: 1.99,
+    date: "2019"
+  })
+  {
+    title
+    description
+  }
+}`
+
+
+
+## Using query to view the data from databases
+`
+query {
+  events {
+    title
+    _id
+    description
+    price
+  }
+}
+`
