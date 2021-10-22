@@ -37,6 +37,9 @@ https://chrome.google.com/webstore/detail/chromeiql/fkkiamalmpiidkljmicmjfbieicl
 
 Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
 
+### bcryptjs
+For hashing user passwords before storing them.
+* `npm i bcryptjs`
 
 ## To run program
 `nodemon app.js` *should be using nodemon instead of node, because it auto-refreshes everytime you save new changes.*
@@ -72,6 +75,6 @@ query {
     price
   }
 }
+`
 
-## Installing bcryptjs for hashing user passwords before storing them.
-`npm i bcryptjs`
+
