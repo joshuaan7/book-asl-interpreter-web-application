@@ -3,6 +3,10 @@ Northeastern University Enabling Engineering Project: ASL Interpreter Booking We
 
 By: Fatema Janahi, Julian Lechner, Joshua An.
 
+## Tutorial Info
+* https://documentation.peelmicro.info/other/graphql-graphql-react-event-booking.html#_2-api-design-project-setup-8-32
+* https://www.youtube.com/watch?v=7giZGFDGnkc
+
 
 ## Steps everyone needs complete to set up environment.
 In the command line:
@@ -68,4 +72,6 @@ query {
     price
   }
 }
-`
+
+## Installing bcryptjs for hashing user passwords before storing them.
+`npm i bcryptjs`
