@@ -74,13 +74,27 @@ rootValue: {
         title: args.eventInput.title,
         description: args.eventInput.description,
         price: +args.eventInput.price,
-        date: new Date(args.eventInput.date)
+        date: new Date(args.eventInput.date),
+          creator: "6176125277fbcd2a15c79037" // temporarily hardcoded
       });
+      let createdEvent;
       return event
         .save()
         .then(result => {
-          console.log(result);
-          return { ...result._doc, _id: result._doc._id.toString()};
+            console.log(result);
+            createdEvent = { ...result._doc, _id: result._doc._id.toString() };
+            return User.findById(result._doc.creator.toString())
+        })
+        .then(user => {
+            if (!user) {
+                throw new Error('User does not exist.')
+            }
+            user.createdEvents.push(event);
+            return user.save();
+        })
+        .then(result => {
+            console.log(result);
+            return createdEvent;
         })
         .catch(err => {
           console.log(err);
