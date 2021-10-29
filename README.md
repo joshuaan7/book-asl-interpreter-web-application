@@ -7,7 +7,7 @@ By: Fatema Janahi, Julian Lechner, Joshua An.
 * https://documentation.peelmicro.info/other/graphql-graphql-react-event-booking.html#_2-api-design-project-setup-8-32
 * https://www.youtube.com/watch?v=7giZGFDGnkc
 
-
+---
 ## Steps everyone needs complete to set up environment.
 In the command line:
 
@@ -28,6 +28,7 @@ In the command line:
 ### Mongoose
 `npm i install mongoose`
 
+---
 ## Packages to install
 
 ### ChromeiQL
@@ -41,6 +42,11 @@ Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
 For hashing user passwords before storing them.
 * `npm i bcryptjs`
 
+### jsonwebtoken
+For authentication.
+* `npm i jsonwebtoken`
+
+---
 ## To run program
 `nodemon app.js` *should be using nodemon instead of node, because it auto-refreshes everytime you save new changes.*
 
@@ -48,6 +54,7 @@ For hashing user passwords before storing them.
 
 * To view, either `curl localhost:3000` in command line, or open `http://localhost:3000/`
 
+---
 ## Using mutations to add to the database in ChromeiQL
 
 `mutation {
