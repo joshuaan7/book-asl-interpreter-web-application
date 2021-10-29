@@ -36,13 +36,18 @@ module.exports = {
             throw new Error("User does not exist.");
         }
 
+        // not sure how to use await, because if we use await,
+        // it will run in parallel and get values for password before
+        // password is actually assigned.
         const isEqual = await bcrypt.compare(password, user.password);
 
         if (!isEqual) {
             throw new Error("Password is incorrect.");
         }
-
-        const token = jwt.sign( {userId: user.id, email: user.email}, 'somesupersecretkey', {
+        
+        const token = jwt.sign( 
+            {userId: user.id, email: user.email}, 
+            'somesupersecretkey', {
             expiresIn: '1h'
         });
 
