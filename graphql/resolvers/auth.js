@@ -11,7 +11,7 @@ module.exports = {
             if (user) {
                 throw new Error('User already exists.');
             }
-            const hashPassword = await bcrypt.hash(args.userInput.password, 12);
+            const hashPassword = await bcrypt.hash(args.userInput.password, 10);
             
             const newUser = new User({
                 email: args.userInput.email,
@@ -36,10 +36,8 @@ module.exports = {
             throw new Error("User does not exist.");
         }
 
-        // not sure how to use await, because if we use await,
-        // it will run in parallel and get values for password before
-        // password is actually assigned.
-        const isEqual = await bcrypt.compare(password, user.password);
+        let passwordHash = await bcrypt.hash(password, 10);
+        const isEqual = await bcrypt.compare(user.password, passwordHash);
 
         if (!isEqual) {
             throw new Error("Password is incorrect.");
