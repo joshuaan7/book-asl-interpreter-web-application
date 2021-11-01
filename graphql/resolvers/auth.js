@@ -12,7 +12,6 @@ module.exports = {
                 throw new Error('User already exists.');
             }
             const hashPassword = await bcrypt.hash(args.userInput.password, 10);
-            
             const newUser = new User({
                 email: args.userInput.email,
                 password: hashPassword
@@ -36,8 +35,7 @@ module.exports = {
             throw new Error("User does not exist.");
         }
 
-        let passwordHash = await bcrypt.hash(password, 10);
-        const isEqual = await bcrypt.compare(user.password, passwordHash);
+        const isEqual = await bcrypt.compare(password, user.password);
 
         if (!isEqual) {
             throw new Error("Password is incorrect.");
