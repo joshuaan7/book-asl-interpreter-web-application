@@ -3,13 +3,13 @@ Northeastern University Enabling Engineering Project: ASL Interpreter Booking We
 
 By: Fatema Janahi, Julian Lechner, Joshua An.
 
-## Tutorial Info
+# Tutorial Info
 * https://documentation.peelmicro.info/other/graphql-graphql-react-event-booking.html#_2-api-design-project-setup-8-32
 * https://www.youtube.com/watch?v=7giZGFDGnkc
 
 ---
-## Steps everyone needs complete to set up environment.
-In the command line:
+# Steps everyone needs complete to set up environment.
+Run commands in the command line:
 
 ### Setting up initial node packages
 * `npm init`
@@ -20,23 +20,17 @@ In the command line:
 * `npm install --save express body-parser`
 * `npm i --save-dev nodemon`
   * in case the above command doesn't work, do `npm install -g nodemon # or using yarn: yarn global add nodemon`
-
+---
 
 ### Setting up GraphQL
-`npm install --save express-graphql graphql`
+* `npm install --save express-graphql graphql`
 
 ### Mongoose
-`npm i install mongoose`
+* `npm i install mongoose`
 
----
-## Packages to install
-
-### ChromeiQL
-Visual representation of our database content.
-
-https://chrome.google.com/webstore/detail/chromeiql/fkkiamalmpiidkljmicmjfbieiclmeij?hl=en
-
-Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
+### Yarn Package Manager
+* Used for dealing with version dependency issues introduced from the frontend.
+* `npm install --global yarn`
 
 ### bcryptjs
 For hashing user passwords before storing them.
@@ -45,6 +39,13 @@ For hashing user passwords before storing them.
 ### jsonwebtoken
 For authentication.
 * `npm i jsonwebtoken`
+---
+### ChromeiQL
+Visual representation of our database content.
+
+https://chrome.google.com/webstore/detail/chromeiql/fkkiamalmpiidkljmicmjfbieiclmeij?hl=en
+
+Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
 
 ---
 ## To run program
@@ -55,6 +56,7 @@ For authentication.
 * To view, either `curl localhost:3000` in command line, or open `http://localhost:3000/`
 
 ---
+# Commands
 ## Using mutations to add to the database in ChromeiQL
 
 `mutation {
