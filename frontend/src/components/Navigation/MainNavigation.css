@@ -1,0 +1,48 @@
+.main-navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4rem;
+  background: rgb(255, 220, 65);
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ASL Interpreter Bookings */
+.main-navigation__logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.main-navigation__items {
+  margin-left: 1.5rem;
+}
+
+/* change how to display list (e.g. Auth, Events, Bookings) */
+.main-navigation__items ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* change margin of navbar items */
+.main-navigation__items li {
+  margin: 0 1rem;
+}
+
+/* change text color of navbar items 
+when not clicked */
+.main-navigation__items a {
+  text-decoration: none;
+  color: black;
+}
+
+/* change hover color of navbar items when clicked */
+.main-navigation__items a:hover,
+.main-navigation__items a:active,
+.main-navigation__items a.active {
+  color: blue;
+}

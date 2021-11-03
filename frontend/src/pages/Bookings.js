@@ -1,10 +1,10 @@
 // No hooks yet...
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class BookingsPage extends Component {
-    render() {
-        return (<h1>The Bookings Page.</h1>);
-    }
+  render() {
+    return <h1>The Bookings Page.</h1>;
+  }
 }
 
-export default BookingsPage
+export default BookingsPage;
