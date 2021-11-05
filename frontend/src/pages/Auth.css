@@ -34,9 +34,9 @@
  * Formatting the button to make it actually look like a nice button 
  */
 .form-actions button {
-    background: #01d1d1;
+    background: #2D3142;
     font: inherit;
-    border: 1px solid #01d1d1;
+    border: 1px solid black;
     border-radius: 3px;
     padding: 0.5rem 1rem;
     margin-right: 1rem;

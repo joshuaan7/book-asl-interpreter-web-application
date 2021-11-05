@@ -2,11 +2,15 @@
 import React, { Component } from 'react';
 
 import './Auth.css';
+import { AuthContext } from "../components/context/auth-context";
+
 
 class AuthPage extends Component {
     state = {
         isLogin: true
     };
+
+    static contextType = AuthContext;
 
     constructor(props) {
         super(props);
@@ -18,9 +22,9 @@ class AuthPage extends Component {
     // switch the mode of logging in to submitting (i think)
     switchModeHandler = () => {
         this.setState(prevState => {
-          return { isLogin: !prevState.isLogin };
+            return { isLogin: !prevState.isLogin };
         });
-      };
+    };
 
     // checks the submitted email and password
     submitHandler = event => {
@@ -42,13 +46,13 @@ class AuthPage extends Component {
                   tokenExpiration
                 }
               }
-            `      
-          };
+            `
+        };
 
-          // else if login is not true, it will allow user to create a new user
-          if (!this.state.isLogin) {
+        // else if login is not true, it will allow user to create a new user
+        if (!this.state.isLogin) {
             requestBody = {
-              query: `
+                query: `
                 mutation {
                   createUser(userInput: {email: "${email}", password: "${password}"})
                   {
@@ -58,8 +62,8 @@ class AuthPage extends Component {
                 }
               `
             };
-          }
-        
+        }
+
 
         // fetch returns a promise
         fetch("http://localhost:8000/graphql", {
@@ -76,6 +80,13 @@ class AuthPage extends Component {
                 return res.json();
             })
             .then(resData => {
+                if (resData.data.login.token) {
+                    this.context.login(
+                        resData.data.login.token,
+                        resData.data.login.userId,
+                        resData.data.login.tokenExpiration
+                    );
+                }
                 console.log(resData);
             })
             .catch(err => {
