@@ -11,7 +11,7 @@ By: Fatema Janahi, Julian Lechner, Joshua An.
 # Steps everyone needs complete to set up environment.
 Run commands in the command line:
 
-### Setting up initial node packages
+## Setting up initial node packages
 * `npm init`
 * You will be promted with fields to fill in, hit enter on your keyboard (leave everything blank/as is).
 
@@ -22,7 +22,7 @@ Run commands in the command line:
   * in case the above command doesn't work, do `npm install -g nodemon # or using yarn: yarn global add nodemon`
 ---
 
-### Setting up GraphQL
+### GraphQL
 * `npm install --save express-graphql graphql`
 
 ### Mongoose
@@ -49,9 +49,12 @@ Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
 
 ---
 ## To run program
-`nodemon app.js` *should be using nodemon instead of node, because it auto-refreshes everytime you save new changes.*
 
-`npm start` *don't think this is necessary if nodemon is set up correctly*
+### Need to run front-end server at the same time as the back-end server to connect to both.
+
+`npm start` in both the `front-end` folder and the main directory
+
+`nodemon app.js` *DON'T NEED IF USING npm start* should be using nodemon instead of node, because it auto-refreshes everytime you save new changes.*
 
 * To view, either `curl localhost:3000` in command line, or open `http://localhost:3000/`
 
@@ -71,7 +74,6 @@ Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
     description
   }
 }`
-
 
 
 ## Using query to view the data from databases in ChromeiQL
