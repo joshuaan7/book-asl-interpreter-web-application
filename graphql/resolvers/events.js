@@ -22,7 +22,7 @@ module.exports = {
           title: args.eventInput.title,
           description: args.eventInput.description,
           price: +args.eventInput.price,
-          date: dateToString(args.eventInput.date),
+          date: args.eventInput.date,
           creator: "617b7adcdeb6f7f7fb6ce991"
       });
 
