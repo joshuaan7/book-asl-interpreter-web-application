@@ -39,6 +39,10 @@ For hashing user passwords before storing them.
 ### jsonwebtoken
 For authentication.
 * `npm i jsonwebtoken`
+
+### dataloader
+For data loader stuff.
+* `npm i dataloader`
 ---
 ### ChromeiQL
 Visual representation of our database content.
@@ -49,6 +53,8 @@ Within ChromeiQL, enter `http://localhost:3000/graphql` in "Set endpoint" tab.
 
 ---
 ## To run program
+
+Run `yarn` in both `interpreter_booking_app` and `interpreter_booking_app/frontend/`
 
 ### Need to run front-end server at the same time as the back-end server to connect to both.
 
