@@ -1,22 +1,22 @@
-const moongose = require('mongoose');
+const mongoose = require('mongoose');
 
-const Schema = moongose.Schema;
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    createdEvents: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Event'
-        }
-    ]
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  createdEvents: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Event'
+    }
+  ]
 });
 
-module.exports = moongose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);

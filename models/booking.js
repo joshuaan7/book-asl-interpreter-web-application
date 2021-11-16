@@ -1,19 +1,19 @@
-const moongose = require("mongoose");
+const mongoose = require('mongoose');
 
-const Schema = moongose.Schema;
+const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema(
   {
     event: {
       type: Schema.Types.ObjectId,
-      ref: "Event"
+      ref: 'Event'
     },
     user: {
       type: Schema.Types.ObjectId,
-      ref: "User"
+      ref: 'User'
     }
   },
   { timestamps: true }
 );
 
-module.exports = moongose.model("Booking", bookingSchema);
+module.exports = mongoose.model('Booking', bookingSchema);
