@@ -35,7 +35,7 @@ app.use(
 mongoose
     .connect(process.env.MONGODB_URI || `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.18rwo.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`)
   .then(() => {
-    app.listen(8000 || process.env.PORT);
+    app.listen(process.env.PORT || 8000);
   })
   .catch(err => {
     console.log(err);
