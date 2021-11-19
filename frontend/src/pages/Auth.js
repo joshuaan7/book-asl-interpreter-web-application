@@ -64,7 +64,7 @@ class AuthPage extends Component {
       };
     }
 
-    fetch('http://localhost:8000/graphql' || `http://localhost:${process.env.PORT}/graphql` || 'graphql', { 
+    fetch('http://localhost:8000/graphql' || `http://localhost:${process.env.PORT}/graphql` || '/graphql', { 
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
