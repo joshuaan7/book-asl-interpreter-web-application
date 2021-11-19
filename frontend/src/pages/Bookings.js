@@ -78,7 +78,7 @@ class BookingsPage extends Component {
       }
     };
 
-    fetch('/graphql', { //http://localhost:8000
+    fetch('http://localhost:8000/graphql' || `http://localhost:${process.env.PORT}/graphql` || 'graphql', { 
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
