@@ -7,8 +7,8 @@ module.exports = {
     if (!req.isAuth) {
       throw new Error('Unauthenticated!');
     }
-    try {
-        const bookings = await Booking.find();
+        try {
+            const bookings = await Booking.find({user: req.userId});
             /*{
                 $or: [
                     { "user": req.userId },

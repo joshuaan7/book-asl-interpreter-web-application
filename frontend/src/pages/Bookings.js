@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 
 import Spinner from '../components/Spinner/Spinner';
 import AuthContext from '../context/auth-context';
 import BookingList from '../components/Bookings/BookingList/BookingList';
 import BookingsChart from '../components/Bookings/BookingsChart/BookingsChart';
 import BookingsControls from '../components/Bookings/BookingsControls/BookingsControls';
-import req from '../../graphql/middleware/is-auth';
+//import req from '../../graphql/middleware/is-auth';
 
 class BookingsPage extends Component {
   state = {
@@ -14,11 +14,14 @@ class BookingsPage extends Component {
     outputType: 'list'
   };
 
-  static contextType = AuthContext;
+    /* context = {
+        auth: '',
+    }; //DANIA_EDITS*/
 
-  componentDidMount() {
-    this.fetchBookings();
-  }
+    componentDidMount() {
+        //DANIA_EDITS this.context.auth = useContext(AuthContext);
+        this.fetchBookings();
+    }
 
   fetchBookings = () => {
     this.setState({ isLoading: true });
@@ -61,9 +64,13 @@ class BookingsPage extends Component {
         return res.json();
       })
       .then(resData => {
-          const bookingsAll = resData.data.bookings;
+          const bookings = resData.data.bookings;
           //get bookings created by user and user's events that were booked
-          const bookings = bookingsAll.filter(b => (b.user._id === "6197160545090c1ab05fc9d6") || (b.event.creator._id === "6197160545090c1ab05fc9d6")); //req.userId);
+          /*bookings.filter((booking) => {
+              console.log(booking.user);
+              console.log(this.state.auth.userId);
+              return booking.user == this.state.auth.userId;
+          }); //DANIA_EDITS*/
           this.setState({ bookings: bookings, isLoading: false });
       })
       .catch(err => {
