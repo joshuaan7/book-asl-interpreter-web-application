@@ -27,11 +27,18 @@ class BookingsPage extends Component {
             bookings {
               _id
              createdAt
+             user {
+                _id
+             }
              event {
                _id
                title
                date
                price
+               creator {
+                   _id
+                   email
+               }
              }
             }
           }

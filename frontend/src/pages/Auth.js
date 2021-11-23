@@ -10,11 +10,12 @@ class AuthPage extends Component {
 
   static contextType = AuthContext;
 
-  constructor(props) {
-    super(props);
-    this.emailEl = React.createRef();
-    this.passwordEl = React.createRef();
-  }
+    constructor(props) {
+        super(props);
+        this.emailEl = React.createRef();
+        this.passwordEl = React.createRef();
+    }
+  
 
   switchModeHandler = () => {
     this.setState(prevState => {
@@ -92,10 +93,10 @@ class AuthPage extends Component {
   };
 
   render() {
-    return (
+      return (
       <form className="auth-form" onSubmit={this.submitHandler}>
         <div className="form-control">
-          <label htmlFor="email">E-Mail</label>
+        <label htmlFor="email">E-Mail</label>
           <input type="email" id="email" ref={this.emailEl} />
         </div>
         <div className="form-control">

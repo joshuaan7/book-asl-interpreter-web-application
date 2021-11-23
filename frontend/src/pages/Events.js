@@ -272,12 +272,18 @@ class EventsPage extends Component {
         )}
         {this.context.token && (
           <div className="events-control">
-            <p>Share your own Events!</p>
+            <h3>Need an Interpreter?</h3>
+            <p>Create a request with the required details below!</p>
             <button className="btn" onClick={this.startCreateEventHandler}>
-              Create Event
+              Request an Interpreter 
             </button>
           </div>
-        )}
+            )}
+            <h2> Available Jobs Board </h2>
+            <p> This is the hub where all interpreter requests
+                are posted! As an interpreter, you can pick up any
+                request and get in contact with the requester!
+            </p>
         {this.state.isLoading ? (
           <Spinner />
         ) : (
