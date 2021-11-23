@@ -6,6 +6,8 @@ import BookingList from '../components/Bookings/BookingList/BookingList';
 import BookingsChart from '../components/Bookings/BookingsChart/BookingsChart';
 import BookingsControls from '../components/Bookings/BookingsControls/BookingsControls';
 
+const PORT = process.env.PORT || 8000; // global port variable 
+
 class BookingsPage extends Component {
   state = {
     isLoading: false,
@@ -38,7 +40,7 @@ class BookingsPage extends Component {
         `
     };
 
-    fetch('http://localhost:8000/graphql' || `http://localhost:${process.env.PORT}/graphql` || '/graphql', { 
+    fetch(PORT + '/graphql', { 
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
@@ -78,7 +80,7 @@ class BookingsPage extends Component {
       }
     };
 
-    fetch('http://localhost:8000/graphql' || `http://localhost:${process.env.PORT}/graphql` || '/graphql', { 
+    fetch(PORT + '/graphql', { 
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {

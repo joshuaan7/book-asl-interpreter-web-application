@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './Auth.css';
 import AuthContext from '../context/auth-context';
 
+const PORT = process.env.PORT || 8000; // global port variable 
+
 class AuthPage extends Component {
   state = {
     isLogin: true
@@ -64,7 +66,7 @@ class AuthPage extends Component {
       };
     }
 
-    fetch('http://localhost:8000/graphql' || `http://localhost:${process.env.PORT}/graphql` || '/graphql', { 
+    fetch(PORT + '/graphql', { 
       method: 'POST',
       body: JSON.stringify(requestBody),
       headers: {
