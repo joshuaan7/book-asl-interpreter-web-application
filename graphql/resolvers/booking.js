@@ -8,7 +8,15 @@ module.exports = {
       throw new Error('Unauthenticated!');
     }
     try {
-      const bookings = await Booking.find({user: req.userId});
+        const bookings = await Booking.find();
+            /*{
+                $or: [
+                    { "user": req.userId },
+                    { "event": { "creator": { "email": "fatema@test.com" } } }
+                ]
+            });*/
+            //req.userId });
+            //user: req.userId }, {'event.creator._id': req.userId }]);
       return bookings.map(booking => {
         return transformBooking(booking);
       });

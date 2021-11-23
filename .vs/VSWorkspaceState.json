@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\frontend",
+    "\\frontend\\public",
+    "\\frontend\\src",
+    "\\frontend\\src\\components\\Bookings",
+    "\\frontend\\src\\components\\Bookings\\BookingList",
+    "\\frontend\\src\\components\\Bookings\\BookingsChart",
+    "\\frontend\\src\\pages",
+    "\\helpers",
+    "\\models"
+  ],
+  "SelectedNode": "\\frontend\\src\\pages\\Bookings.js",
+  "PreviewInSolutionExplorer": false
+}

@@ -5,6 +5,7 @@ import AuthContext from '../context/auth-context';
 import BookingList from '../components/Bookings/BookingList/BookingList';
 import BookingsChart from '../components/Bookings/BookingsChart/BookingsChart';
 import BookingsControls from '../components/Bookings/BookingsControls/BookingsControls';
+import req from '../../graphql/middleware/is-auth';
 
 class BookingsPage extends Component {
   state = {
@@ -27,11 +28,18 @@ class BookingsPage extends Component {
             bookings {
               _id
              createdAt
+             user {
+                _id
+             }
              event {
                _id
                title
                date
                price
+               creator {
+                   _id
+                   email
+               } 
              }
             }
           }
@@ -53,8 +61,10 @@ class BookingsPage extends Component {
         return res.json();
       })
       .then(resData => {
-        const bookings = resData.data.bookings;
-        this.setState({ bookings: bookings, isLoading: false });
+          const bookingsAll = resData.data.bookings;
+          //get bookings created by user and user's events that were booked
+          const bookings = bookingsAll.filter(b => (b.user._id === "6197160545090c1ab05fc9d6") || (b.event.creator._id === "6197160545090c1ab05fc9d6")); //req.userId);
+          this.setState({ bookings: bookings, isLoading: false });
       })
       .catch(err => {
         console.log(err);
